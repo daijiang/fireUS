@@ -7,6 +7,9 @@ output: html_document
 
 This repository includes data about annual fire burned area in the USA since 1926. Data from 1926 to 1959 came from [here](http://www.census.gov/prod/www/statistical_abstract.html). Or you can just download `fireUS1926_1959.csv`, which was digitized from `fireUS1926-1970.pdf` in this repository. Data from 1960 to 2013 came from [here](http://www.nifc.gov/fireInfo/fireInfo_stats_totalFires.html).
 
+The figure at the end is in the appendix of this paper:
+>Daijiang Li and Donald Waller. In press. Drivers of observed biotic homogenization in pine barrens of central Wisconsin. Ecology. [url](http://www.esajournals.org/doi/abs/10.1890/14-0893.1)
+
 Here is the R code to extract the recent data from online and plot it.
 ```{r}
 library(XML)
