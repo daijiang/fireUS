@@ -17,13 +17,16 @@ fire.1960.2013 = readHTMLTable(doc = fire.url)
 str(fire.1960.2013)
 fire.1960.2013 = fire.1960.2013[[1]]
 fire.1960.2013 = fire.1960.2013[-1,]
-fire.1960.2013 = fire.1960.2013[-c(nrow(fire.1960.2013), (nrow(fire.1960.2013)-1)),]
+fire.1960.2013 = fire.1960.2013[-c(nrow(fire.1960.2013), 
+                                   (nrow(fire.1960.2013)-1)),]
 names(fire.1960.2013) = c("Year", "Fires", "Acres")
 fire.1960.2013 = fire.1960.2013[-1,]
 str(fire.1960.2013)
 fire.1960.2013$Year = as.numeric(as.character(fire.1960.2013$Year))
-fire.1960.2013$Fires = str_replace_all(string = fire.1960.2013$Fires, pattern = "[,*]", replacement = "")
-fire.1960.2013$Acres = str_replace_all(string = fire.1960.2013$Acres, pattern = "[,*]", replacement = "")
+fire.1960.2013$Fires = str_replace_all(string = fire.1960.2013$Fires, 
+                                       pattern = "[,*]", replacement = "")
+fire.1960.2013$Acres = str_replace_all(string = fire.1960.2013$Acres, 
+                                       pattern = "[,*]", replacement = "")
 fire.1960.2013$Fires = as.numeric(as.character(fire.1960.2013$Fires))
 fire.1960.2013$Acres = as.numeric(as.character(fire.1960.2013$Acres))
 str(fire.1960.2013)
@@ -37,7 +40,8 @@ fire$ha=fire$Acres*0.404686
 fire$ha.10e6=fire$ha/1000000
 png(file = "fireUS.png", width = 600)
 par(mar=c(5,6,4,2))
-plot(fire$Year, fire$ha.10e6, type="o",pch=19, xaxt="n", xlab="Year", ylab=expression(paste('Area Burned (', 10^{6}, 'ha/yr)',sep=" ")))
+plot(fire$Year, fire$ha.10e6, type="o",pch=19, xaxt="n", xlab="Year", 
+     ylab=expression(paste('Area Burned (', 10^{6}, 'ha/yr)',sep=" ")))
 axis(side=1, at=seq(1930,2010,by=10))
 dev.off()
 ```
