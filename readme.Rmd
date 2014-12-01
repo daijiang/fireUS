@@ -5,7 +5,7 @@ date: "12/01/2014"
 output: html_document
 ---
 
-This repository includes data about annual fire burned area in the USA since 1942. Data from 1942 to 1959 came from [here](http://www.census.gov/prod/www/statistical_abstract.html). Or you can just download `fireUS1942_1959.csv`, which was digitized from `fireUS1942-1970.pdf` in this repository. Data from 1960 to 2013 came from [here](http://www.nifc.gov/fireInfo/fireInfo_stats_totalFires.html).
+This repository includes data about annual fire burned area in the USA since 1926. Data from 1926 to 1959 came from [here](http://www.census.gov/prod/www/statistical_abstract.html). Or you can just download `fireUS1926_1959.csv`, which was digitized from `fireUS1926-1970.pdf` in this repository. Data from 1960 to 2013 came from [here](http://www.nifc.gov/fireInfo/fireInfo_stats_totalFires.html).
 
 Here is the R code to extract the recent data from online and plot it.
 ```{r}
@@ -31,10 +31,10 @@ fire.1960.2013$Fires = as.numeric(as.character(fire.1960.2013$Fires))
 fire.1960.2013$Acres = as.numeric(as.character(fire.1960.2013$Acres))
 str(fire.1960.2013)
 
-fire.1942.1959 = read.csv("fireUS1942_1959.csv", header = T)
-str(fire.1942.1959)
+fire.1926.1959 = read.csv("fireUS1926_1959.csv", header = T)
+str(fire.1926.1959)
 
-fire = rbind(fire.1960.2013, fire.1942.1959)
+fire = rbind(fire.1960.2013, fire.1926.1959)
 
 fire$ha=fire$Acres*0.404686
 fire$ha.10e6=fire$ha/1000000
